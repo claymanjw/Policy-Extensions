@@ -1,0 +1,24 @@
+function NSTEXT:WEEKNUMOFYEAR(tm) : NSTEXT
+  -- Example of code that get week number according to ISO8601
+  dayOfYear = os.date("%j",tm)
+  dayAdd = getDayAdd(tm)
+  dayOfYearCorrected = dayOfYear + dayAdd
+  if(dayOfYearCorrected < 0) then
+    -- week of last year - decide if 52 or 53
+    lastYearBegin = os.time{year=os.date("*t",tm).year-1,month=1,day=1}
+    lastYearEnd = os.time{year=os.date("*t",tm).year-1,month=12,day=31}
+    dayAdd = getDayAdd(lastYearBegin)
+    dayOfYear = dayOfYear + os.date("%j",lastYearEnd)
+    dayOfYearCorrected = dayOfYear + dayAdd
+  end  
+  weekNum = math.floor((dayOfYearCorrected) / 7) + 1
+  if( (dayOfYearCorrected > 0) and weekNum == 53) then
+    -- check if it is not considered as part of week 1 of next year
+    nextYearBegin = os.time{year=os.date("*t",tm).year+1,month=1,day=1}
+    yearBeginDayOfWeek = getYearBeginDayOfWeek(nextYearBegin)
+    if(yearBeginDayOfWeek < 5 ) then
+      weekNum = 1
+    end  
+  end  
+  return weekNum
+end
