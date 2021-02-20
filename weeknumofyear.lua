@@ -1,7 +1,8 @@
 function NSTEXT:WEEKNUMOFYEAR() : NSTEXT
-  -- Example of code that get week number according to ISO8601
+  -- This function returns the week number according to ISO8601
+  -- and the Gregorian calendar standard
   
-  -- Helper Functions
+  -- Helper Functions ---------------------------------------------------
   local function getYearBeginDayOfWeek(tm)
   -- Get day of a week at year beginning 
   --(tm can be any date and will be forced to 1st of january same year)
@@ -29,6 +30,7 @@ function NSTEXT:WEEKNUMOFYEAR() : NSTEXT
     end  
     return dayAdd
   end
+  -----------------------------------------------------------------------
   
   local function getWeekNumberOfYear(tm)
   -- tm is date as returned from os.time()
@@ -61,5 +63,6 @@ function NSTEXT:WEEKNUMOFYEAR() : NSTEXT
     end
     return weekNum
   end
+  -- call function and return value to ADC
   return getWeekNumberOfYear(tm)
   end
