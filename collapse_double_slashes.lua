@@ -1,4 +1,4 @@
-    -- Collapse double slashes in URL to a single slash and return the result
+    -- Collapse double slashes in URL to a single slash
     function NSTEXT:COLLAPSE_DOUBLE_SLASHES() : NSTEXT
 
         local result = string.gsub(self, "//", "/")
