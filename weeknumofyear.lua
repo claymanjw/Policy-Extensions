@@ -7,7 +7,7 @@ function NSTEXT:WEEKNUMOFYEAR() : NSTEXT
   -- Get day of a week at year beginning 
   --(tm can be any date and will be forced to 1st of january same year)
   -- return 1=mon 7=sun
-    local yearBegin = os.time{year=os.date("*t",tm).year,month=1,day=1}
+    yearBegin = os.time{year=os.date("*t",tm).year,month=1,day=1}
     local yearBeginDayOfWeek = tonumber(os.date("%w",yearBegin))
     -- sunday correct from 0 -> 7
     if(yearBeginDayOfWeek == 0) then yearBeginDayOfWeek = 7 end
