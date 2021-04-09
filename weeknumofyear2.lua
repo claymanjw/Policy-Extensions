@@ -1,4 +1,4 @@
-function NSTEXT:WEEKNUMOFYEAR2() : NSTEXT
+function NSTEXT:WEEKNUMOFYEAR() : NSTEXT
   -- This function returns the week number according to ISO8601
   -- and the Gregorian calendar standard
   
@@ -58,9 +58,9 @@ function NSTEXT:WEEKNUMOFYEAR2() : NSTEXT
       end  
     end  
     -- normalize the calculated weekNum value to 2 charceters if < 10
-    --if (weekNum <= 9) then 
-    --weekNum = string.format("%02d", weekNum)
-    --end
+    if (weekNum <= 9) then 
+      weekNum = string.format("%02d", weekNum)
+    end
     return weekNum
   end
   -- call function and return value to ADC
