@@ -1,4 +1,4 @@
-function NSTEXT:WEEKNUMOFYEAR() : NSTEXT
+function NSTEXT:WEEKNUMOFYEAR2() : NSTEXT
   -- This function returns the week number according to ISO8601
   -- and the Gregorian calendar standard
   
