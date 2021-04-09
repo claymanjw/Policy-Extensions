@@ -18,7 +18,7 @@ function NSTEXT:WEEKNUMOFYEAR() : NSTEXT
   -- tm: date (as retruned fro os.time)
   -- returns basic correction to be add for counting number of week
   --  weekNum = math.floor((dayOfYear + returnedNumber) / 7) + 1 
-  -- (does not consider correctin at begin and end of year) 
+  -- (does not consider correctin at beginning and end of year) 
     local yearBeginDayOfWeek = getYearBeginDayOfWeek(tm)
     local dayAdd
     if(yearBeginDayOfWeek < 5 ) then
